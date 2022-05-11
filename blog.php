@@ -22,8 +22,19 @@ $articles = [
 dump($articles);
 
 foreach ($articles as $article) {
-    echo $article->getTitle();
+    echo "title: {$article->getTitle()}";
     echo '<br>';
-    echo $article->getCategory()->getName() ;
+
+// echo "category: {$article->getCategory()->getName()}";
+    // echo '<br>';
+
+    // fait la même chose que la ligne 24
+    $category = $article->getCategory();
+    echo "category: {$category->getName()}";
     echo '<br>';
+
+    foreach ($category->getArticles() as $article) {
+        echo "same category title: {$article->getTitle()}";
+        echo '<br>';
+    }
 }
