@@ -12,16 +12,16 @@ class Task
     private $title;
     private $limiteDate;
     private $done;
-    private $person_in_charge;
+    private $PersonInCharge;
     private $tags;
 
-    public function __construct(int $id,string $title,DateTime $limiteDate,bool $done,array $person_in_charge = [],array $tags = [])
+    public function __construct(int $id,string $title,DateTime $limiteDate,bool $done,User $PersonInCharge,Tag $tags)
     {
         $this->id = $id;
         $this->title = $title;
         $this->limiteDate = $limiteDate;
         $this->done = $done;
-        $this->person_in_charge = $person_in_charge;
+        $this->PersonInCharge = $PersonInCharge;
         $this->tags = $tags;
     }
 
@@ -46,7 +46,7 @@ class Task
      *
      * @return  self
      */ 
-    public function setTitle($title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -94,40 +94,40 @@ class Task
     }
 
     /**
-     * Get the value of person_in_charge
+     * Get the value of PersonInCharge
      */ 
-    public function getPerson_in_charge(): array
+    public function getPersonInCharge(): array
     {
-        return $this->person_in_charge;
+        return $this->PersonInCharge;
     }
 
     /**
-     * Set the value of person_in_charge
+     * Set the value of PersonInCharge
      *
      * @return  self
      */ 
-    public function setPerson_in_charge(User $person_in_charge): self
+    public function setPersonInCharge(User $PersonInCharge): self
     {
-        $this->person_in_charge = $person_in_charge;
+        $this->PersonInCharge = $PersonInCharge;
 
         return $this;
     }
 
-    public function addPerson_in_charge(User $Person_in_charge): self
+    public function addPersonInCharge(User $PersonInCharge): self
     {
         if (!in_array($tag, $this->tags)){
-            $this->Person_in_charge[] = $Person_in_charge;
+            $this->PersonInCharge[] = $PersonInCharge;
         }
 
         return $this;
     }
 
-    public function removePerson_in_charge(User $Person_in_charge): self
+    public function removePersonInCharge(User $PersonInCharge): self
     {
-        $index = array_search($Person_in_charge, $this->Person_in_charge);
+        $index = array_search($PersonInCharge, $this->PersonInCharge);
 
         if ($index !== false){
-            array_splice($this->Person_in_charge, $index, 1);
+            array_splice($this->PersonInCharge, $index, 1);
         }
         return $this;
     }
@@ -146,14 +146,14 @@ class Task
      *
      * @return  self
      */ 
-    public function setTags(array $tags): self
+    public function setTags(Tag $tags): self
     {
         $this->tags = $tags;
 
         return $this;
     }
 
-    public function addTag(Tags $tag): self
+    public function addTag(Tag $tag): self
     {
         if (!in_array($tag, $this->tags)){
             $this->tags[] = $tag;
@@ -162,7 +162,7 @@ class Task
         return $this;
     }
 
-    public function removeTags(Tags $tag): self
+    public function removeTags(Tag $tag): self
     {
         $index = array_search($tag, $this->tags);
 

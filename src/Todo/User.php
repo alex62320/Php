@@ -13,7 +13,7 @@ class User
     private $email;
     private $tasks;
 
-    public function __construct(int $id,string $firstname,string $lastname,string $password,string $email, array $tasks = [])
+    public function __construct(int $id,string $firstname,string $lastname,string $password,string $email, Task $tasks)
     {
         $this->id =$id;
         $this->firstname = $firstname;
@@ -42,7 +42,7 @@ class User
      *
      * @return  self
      */ 
-    public function setFirstname($firstname): self
+    public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
 
@@ -62,7 +62,7 @@ class User
      *
      * @return  self
      */ 
-    public function setLastname($lastname): self
+    public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
 
@@ -82,7 +82,7 @@ class User
      *
      * @return  self
      */ 
-    public function setPassword($password): self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
@@ -102,7 +102,7 @@ class User
      *
      * @return  self
      */ 
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -122,14 +122,14 @@ class User
      *
      * @return  self
      */ 
-    public function setTasks(Tasks $tasks): self
+    public function setTasks(Task $tasks): self
     {
         $this->tasks = $tasks;
 
         return $this;
     }
 
-    public function addTasks($tasks): self
+    public function addTasks(Task $tasks): self
     {
         if (!in_array($tasks, $this->tasks)){
             $this->tasks[] = $tasks;
@@ -138,7 +138,7 @@ class User
         return $this;
     }
 
-    public function removeTasks($tasks): self
+    public function removeTasks(Task $tasks): self
     {
         $index = array_search($tasks, $this->tasks);
 

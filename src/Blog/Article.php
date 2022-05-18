@@ -97,7 +97,7 @@ class Article
      *
      * @return  self
      */ 
-    public function setCategory($category): self
+    public function setCategory(Category $category): self
     {
         $this->category = $category;
 
