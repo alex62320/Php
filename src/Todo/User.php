@@ -1,6 +1,8 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Todo;
+
+use App\Todo\Task;
 
 class User 
 {
@@ -11,17 +13,18 @@ class User
     private $email;
     private $tasks;
 
-    public function __construct($id, $firstname, $lastname, $password, $email)
+    public function __construct(int $id,string $firstname,string $lastname,string $password,string $email, array $tasks = [])
     {
         $this->id =$id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->password = $password;
         $this->email = $email;
+        $this->tasks = $tasks;
     }
 
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -29,7 +32,7 @@ class User
     /**
      * Get the value of firstname
      */ 
-    public function getFirstname()
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
@@ -39,7 +42,7 @@ class User
      *
      * @return  self
      */ 
-    public function setFirstname($firstname)
+    public function setFirstname($firstname): self
     {
         $this->firstname = $firstname;
 
@@ -49,7 +52,7 @@ class User
     /**
      * Get the value of lastname
      */ 
-    public function getLastname()
+    public function getLastname(): string
     {
         return $this->lastname;
     }
@@ -59,7 +62,7 @@ class User
      *
      * @return  self
      */ 
-    public function setLastname($lastname)
+    public function setLastname($lastname): self
     {
         $this->lastname = $lastname;
 
@@ -69,7 +72,7 @@ class User
     /**
      * Get the value of password
      */ 
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -79,7 +82,7 @@ class User
      *
      * @return  self
      */ 
-    public function setPassword($password)
+    public function setPassword($password): self
     {
         $this->password = $password;
 
@@ -89,7 +92,7 @@ class User
     /**
      * Get the value of email
      */ 
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -99,7 +102,7 @@ class User
      *
      * @return  self
      */ 
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->email = $email;
 
@@ -109,7 +112,7 @@ class User
     /**
      * Get the value of tasks
      */ 
-    public function getTasks()
+    public function getTasks(): array
     {
         return $this->tasks;
     }
@@ -119,14 +122,14 @@ class User
      *
      * @return  self
      */ 
-    public function setTasks($tasks)
+    public function setTasks(Tasks $tasks): self
     {
         $this->tasks = $tasks;
 
         return $this;
     }
 
-    public function addTasks($tasks)
+    public function addTasks($tasks): self
     {
         if (!in_array($tasks, $this->tasks)){
             $this->tasks[] = $tasks;
@@ -135,7 +138,7 @@ class User
         return $this;
     }
 
-    public function removeTasks($tasks)
+    public function removeTasks($tasks): self
     {
         $index = array_search($tasks, $this->tasks);
 

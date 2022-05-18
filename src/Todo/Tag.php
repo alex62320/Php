@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Todo;
 
@@ -7,7 +7,7 @@ class Tag
     private $id;
     private $name;
     
-    public function __construct($id, $name)
+    public function __construct(int $id,string $name)
     {
         $this->id = $id;
         $this->name = $name; 
@@ -16,7 +16,7 @@ class Tag
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -26,7 +26,7 @@ class Tag
     /**
      * Get the value of name
      */ 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -36,7 +36,7 @@ class Tag
      *
      * @return  self
      */ 
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
 

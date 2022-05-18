@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 // Article
 // - id
@@ -19,6 +19,8 @@
 
 namespace App\Blog;
 
+use App\Blog\Category;
+
 class Article
 {
     private $id;
@@ -26,7 +28,7 @@ class Article
     private $body;
     private $category;
 
-    public function __construct($id, $title, $body, $category)
+    public function __construct(int $id, string $title, string $body, Category $category)
     {
         $this->id = $id;
         $this->title = $title;
@@ -37,7 +39,7 @@ class Article
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -45,7 +47,7 @@ class Article
     /**
      * Get the value of title
      */ 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -55,7 +57,7 @@ class Article
      *
      * @return  self
      */ 
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -95,7 +97,7 @@ class Article
      *
      * @return  self
      */ 
-    public function setCategory($category)
+    public function setCategory($category): self
     {
         $this->category = $category;
 
