@@ -122,28 +122,28 @@ class User
      *
      * @return  self
      */ 
-    public function setTasks(Task $tasks): self
+    public function setTasks(array $tasks): self
     {
         $this->tasks = $tasks;
 
         return $this;
     }
 
-    public function addTasks(Task $tasks): self
+    public function addTask(Task $task): self
     {
-        if (!in_array($tasks, $this->tasks)){
-            $this->tasks[] = $tasks;
+        if (!in_array($tasks, $this->task)){
+            $this->tasks[] = $task;
         }
 
         return $this;
     }
 
-    public function removeTasks(Task $tasks): self
+    public function removeTask(Task $task): self
     {
-        $index = array_search($tasks, $this->tasks);
+        $index = array_search($tasks, $this->task);
 
         if ($index !== false){
-            array_splice($this->tasks, $index, 1);
+            array_splice($this->task, $index, 1);
         }
         return $this;
     }
