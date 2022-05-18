@@ -15,7 +15,7 @@ class Task
     private $person_in_charge;
     private $tags;
 
-    public function __construct(int $id,string $title,DateTime $limiteDate,bool $done,string $person_in_charge,array $tags = [])
+    public function __construct(int $id,string $title,DateTime $limiteDate,bool $done,array $person_in_charge = [],array $tags = [])
     {
         $this->id = $id;
         $this->title = $title;
@@ -96,7 +96,7 @@ class Task
     /**
      * Get the value of person_in_charge
      */ 
-    public function getPerson_in_charge(): string
+    public function getPerson_in_charge(): array
     {
         return $this->person_in_charge;
     }
@@ -106,12 +106,32 @@ class Task
      *
      * @return  self
      */ 
-    public function setPerson_in_charge(User $person_in_charge):self
+    public function setPerson_in_charge(User $person_in_charge): self
     {
         $this->person_in_charge = $person_in_charge;
 
         return $this;
     }
+
+    public function addPerson_in_charge(User $Person_in_charge): self
+    {
+        if (!in_array($tag, $this->tags)){
+            $this->Person_in_charge[] = $Person_in_charge;
+        }
+
+        return $this;
+    }
+
+    public function removePerson_in_charge(User $Person_in_charge): self
+    {
+        $index = array_search($Person_in_charge, $this->Person_in_charge);
+
+        if ($index !== false){
+            array_splice($this->Person_in_charge, $index, 1);
+        }
+        return $this;
+    }
+
 
     /**
      * Get the value of tags
