@@ -12,16 +12,16 @@ class Task
     private $title;
     private $limiteDate;
     private $done;
-    private $PersonInCharge;
+    private $personInCharge;
     private $tags;
 
-    public function __construct(int $id,string $title,DateTime $limiteDate,bool $done,User $PersonInCharge,Tag $tags)
+    public function __construct(int $id,string $title, DateTime $limiteDate, bool $done, User $personInCharge,Tag $tags)
     {
         $this->id = $id;
         $this->title = $title;
         $this->limiteDate = $limiteDate;
         $this->done = $done;
-        $this->PersonInCharge = $PersonInCharge;
+        $this->personInCharge = $personInCharge;
         $this->tags = $tags;
     }
 
@@ -94,44 +94,24 @@ class Task
     }
 
     /**
-     * Get the value of PersonInCharge
+     * Get the value of personInCharge
      */ 
-    public function getPersonInCharge(): array
+    public function getpersonInCharge(): User
     {
-        return $this->PersonInCharge;
+        return $this->personInCharge;
     }
 
     /**
-     * Set the value of PersonInCharge
+     * Set the value of personInCharge
      *
      * @return  self
      */ 
-    public function setPersonInCharge(User $PersonInCharge): self
+    public function setpersonInCharge(User $personInCharge): self
     {
-        $this->PersonInCharge = $PersonInCharge;
+        $this->personInCharge = $personInCharge;
 
         return $this;
     }
-
-    public function addPersonInCharge(User $PersonInCharge): self
-    {
-        if (!in_array($tag, $this->tags)){
-            $this->PersonInCharge[] = $PersonInCharge;
-        }
-
-        return $this;
-    }
-
-    public function removePersonInCharge(User $PersonInCharge): self
-    {
-        $index = array_search($PersonInCharge, $this->PersonInCharge);
-
-        if ($index !== false){
-            array_splice($this->PersonInCharge, $index, 1);
-        }
-        return $this;
-    }
-
 
     /**
      * Get the value of tags

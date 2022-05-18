@@ -7,7 +7,7 @@ class Category
     private $id;
     private $name;
     
-    public function __construct(int $id,string $name)
+    public function __construct(int $id, string $name)
     {
         $this->id = $id;
         $this->name = $name; 
@@ -20,8 +20,6 @@ class Category
     {
         return $this->id;
     }
-
-
 
     /**
      * Get the value of name
