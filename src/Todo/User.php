@@ -1,0 +1,147 @@
+<?php
+
+namespace App\Todo;
+
+class User 
+{
+    private $id;
+    private $firstname;
+    private $lastname;
+    private $password;
+    private $email;
+    private $tasks;
+
+    public function __construct($id, $firstname, $lastname, $password, $email)
+    {
+        $this->id =$id;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->password = $password;
+        $this->email = $email;
+    }
+
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get the value of firstname
+     */ 
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set the value of firstname
+     *
+     * @return  self
+     */ 
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lastname
+     */ 
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set the value of lastname
+     *
+     * @return  self
+     */ 
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of password
+     */ 
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set the value of password
+     *
+     * @return  self
+     */ 
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     */ 
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @return  self
+     */ 
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tasks
+     */ 
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
+
+    /**
+     * Set the value of tasks
+     *
+     * @return  self
+     */ 
+    public function setTasks($tasks)
+    {
+        $this->tasks = $tasks;
+
+        return $this;
+    }
+
+    public function addTasks($tasks)
+    {
+        if (!in_array($tasks, $this->tasks)){
+            $this->tasks[] = $tasks;
+        }
+
+        return $this;
+    }
+
+    public function removeTasks($tasks)
+    {
+        $index = array_search($tasks, $this->tasks);
+
+        if ($index !== false){
+            array_splice($this->tasks, $index, 1);
+        }
+        return $this;
+    }
+}
