@@ -140,11 +140,12 @@ class User
 
     public function removeTask(Task $task): self
     {
-        $index = array_search($tasks, $this->task);
+        $index = array_search($task, $this->task);
 
         if ($index !== false){
             array_splice($this->task, $index, 1);
         }
+        
         return $this;
     }
 }

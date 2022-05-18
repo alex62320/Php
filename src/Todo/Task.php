@@ -15,7 +15,7 @@ class Task
     private $personInCharge;
     private $tags;
 
-    public function __construct(int $id,string $title, DateTime $limiteDate, bool $done, User $personInCharge,Tag $tags)
+    public function __construct(int $id,string $title, DateTime $limiteDate, bool $done, User $personInCharge,array $tags = [])
     {
         $this->id = $id;
         $this->title = $title;
@@ -126,7 +126,7 @@ class Task
      *
      * @return  self
      */ 
-    public function setTags(Tag $tags): self
+    public function setTags(array $tags): self
     {
         $this->tags = $tags;
 
@@ -142,7 +142,7 @@ class Task
         return $this;
     }
 
-    public function removeTags(Tag $tag): self
+    public function removeTag(Tag $tag): self
     {
         $index = array_search($tag, $this->tags);
 
