@@ -21,6 +21,7 @@ namespace App\Blog;
 
 use App\Blog\Category;
 use App\Blog\Traits\Categorizable;
+use App\Blog\Traits\Taggable;
 
 class Article
 {
@@ -30,7 +31,6 @@ class Article
     private $id;
     private $title;
     private $body;
-    private $category;
 
     public function __construct(int $id, string $title, string $body, Category $category, array $tags = [])
     {

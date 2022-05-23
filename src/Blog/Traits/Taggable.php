@@ -21,7 +21,7 @@ trait Taggable
      *
      * @return  self
      */ 
-    public function setTags($tags)
+    public function setTags(array $tags)
     {
         $this->tags = $tags;
 

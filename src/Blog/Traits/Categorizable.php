@@ -2,10 +2,11 @@
 
 namespace App\Blog\Traits;
 
+use App\Blog\Category;
+
 trait Categorizable
 {
     private $category;
-
 
      /**
      * Get the value of category
