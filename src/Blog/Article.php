@@ -22,8 +22,9 @@ namespace App\Blog;
 use App\Blog\Category;
 use App\Blog\Traits\Categorizable;
 use App\Blog\Traits\Taggable;
+use App\Blog\Interface\ICategorizable;
 
-class Article
+class Article implements ICategorizable
 {
     use Categorizable;
     use Taggable;
