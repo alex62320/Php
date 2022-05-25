@@ -1,6 +1,9 @@
 <?php declare(strict_types = 1);
 
+
 namespace App\Blog;
+
+use App\Blog\Article;
 
 abstract class ANamedObject
 {
@@ -62,5 +65,4 @@ abstract class ANamedObject
 
         return $this;
     }
-
 }

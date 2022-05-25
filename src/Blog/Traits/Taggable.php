@@ -2,34 +2,28 @@
 
 namespace App\Blog\Traits;
 
-use App\Blog\Tag;
+Use App\Blog\Tag;
 
 trait Taggable
 {
     private $tags;
 
-    /**
-     * Get the value of tags
-     */ 
-    public function getTags()
+    public function getTags(): array
     {
         return $this->tags;
     }
 
-    /**
-     * Set the value of tags
-     *
-     * @return  self
-     */ 
-    public function setTags(array $tags)
+    public function setTags(array $tags): self
     {
         $this->tags = $tags;
 
         return $this;
     }
+
     public function addTag(Tag $tag): self
     {
-        if (!in_array($tag, $this->tags)){
+        // si le tag n'est pas déjà présent dans la liste, on l'ajoute à la liste
+        if (!in_array($tag, $this->tags)) {
             $this->tags[] = $tag;
         }
 
@@ -40,9 +34,12 @@ trait Taggable
     {
         $index = array_search($tag, $this->tags);
 
-        if ($index !== false){
+        if ($index !== false) {
+            // le tag a été trouvé
+            // suppression du tag trouvé
             array_splice($this->tags, $index, 1);
         }
+
         return $this;
     }
 }

@@ -8,10 +8,10 @@ trait Categorizable
 {
     private $category;
 
-     /**
+    /**
      * Get the value of category
      */ 
-    public function getCategory()
+    public function getCategory(): Category
     {
         return $this->category;
     }

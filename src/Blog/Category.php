@@ -15,11 +15,11 @@
 namespace App\Blog;
 
 use App\Blog\ANamedObject;
-use App\Blog\Traits\Articable;
+use App\Blog\Traits\Articlable;
 
 class Category extends ANamedObject
 {
-    use Articable;
+    use Articlable;
 
     public function __construct(int $id, string $name, ?string $description, array $articles = [])
     {

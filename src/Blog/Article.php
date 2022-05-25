@@ -20,9 +20,9 @@
 namespace App\Blog;
 
 use App\Blog\Category;
+use App\Blog\Interface\ICategorizable;
 use App\Blog\Traits\Categorizable;
 use App\Blog\Traits\Taggable;
-use App\Blog\Interface\ICategorizable;
 
 class Article implements ICategorizable
 {
@@ -73,7 +73,7 @@ class Article implements ICategorizable
     /**
      * Get the value of body
      */ 
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }
@@ -83,7 +83,7 @@ class Article implements ICategorizable
      *
      * @return  self
      */ 
-    public function setBody($body)
+    public function setBody(string $body): self
     {
         $this->body = $body;
 
